@@ -782,6 +782,47 @@ __Good__
 ```
 
 
+### Don't nest selectors within a media query
+
+Improves maintainability.
+
+__Bad__
+```scss
+.component { ... }
+
+.component--modifier { ... }
+
+    .component__element {
+        @include respond-to($medium-breakpoint) {
+            color: $element-color;
+
+            .component--modifier & {
+                color: $modified-element-color;
+            }
+        }
+    }
+```
+
+__Good__
+```scss
+.component { ... }
+
+.component--modifier { ... }
+
+    .component__element {
+        @include respond-to($medium-breakpoint) {
+            color: $element-color;
+        }
+
+        .component--modifier & {
+            @include respond-to($medium-breakpoint) {
+                color: $modified-element-color;
+            }
+        }
+    }
+```
+
+
 ### Only extend placeholder selectors ([PlaceholderInExtend](https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#placeholderinextend))
 
 Reduces file size.

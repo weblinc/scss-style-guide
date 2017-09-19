@@ -315,6 +315,22 @@ __Good__
 ```
 
 
+### Don't "double" modifiers
+
+Reduces confusion.
+
+__Bad__
+```scss
+.component--modifier--another-modifier {}
+```
+
+__Good__
+```scss
+.component--modifier {}
+.componetn--another-modifier {}
+```
+
+
 ### Remove borders with a zero ([BorderZero](https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#borderzero))
 
 Reduces file size.

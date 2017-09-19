@@ -1521,19 +1521,24 @@ Improves readability. Improves maintainability. Enforced for:
 __Bad__
 ```scss
 .foo {
-    color: #f00;
-    font-family: sans-serif;
+    color: #ff0000;
+    background-color: #00ff00
 }
 ```
 
 __Good__
 ```scss
-$red: #f00;
-$font-family: 'sans-serif';
+// in settings/_colors.scss
+$red: #ff0000 !default;
+$green: #00ff00 !default;
+
+// in components/_foo.scss
+$foo-color: $red;
+$foo-bg-color: $green;
 
 .foo {
-    color: $red;
-    font-family: $font-family;
+    color: $foo-color;
+    font-family: $foo-bg-color;
 }
 ```
 

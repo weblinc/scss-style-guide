@@ -331,6 +331,21 @@ __Good__
 ```
 
 
+### Components must own their modifiers
+
+Reduces confusion. Examples in Haml:
+
+__Bad__
+```haml
+%h4.heading--1
+```
+
+__Good__
+```haml
+%h4.heading.heading--1
+```
+
+
 ### Remove borders with a zero ([BorderZero](https://github.com/brigade/scss-lint/blob/master/lib/scss_lint/linter/README.md#borderzero))
 
 Reduces file size.

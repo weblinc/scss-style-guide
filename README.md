@@ -6,6 +6,35 @@
 The following rules are recommended best practices for the Weblinc platform. Many come from Harry Robert's [CSS Guidelines](http://cssguidelin.es).
 
 
+### [Mobile-first Approach](https://zellwk.com/blog/how-to-write-mobile-first-css/)
+
+Reduces file size. Improves readability.
+
+__Bad__
+```scss
+.foo {
+    width: 25%;
+}
+
+...
+
+@media screen, and (max-width: $medium-breakpoint) {
+    width: 50%;
+}
+```
+
+__Good__
+```scss
+.foo {
+    width: 50%;  // styles for small devices 
+
+    @include respond-to($medium-breakpoint) {
+        width: 25%;  // styles for medium devices
+    }
+}
+```
+
+
 ### [Multiple Files](http://cssguidelin.es/#multiple-files)
 
 Each file should serve one and only one purpose. Improves maintainability.
